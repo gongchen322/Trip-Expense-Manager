@@ -1,0 +1,73 @@
+<div id="tripInfo">
+    <table class="rwd-table" width="700">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Money Spent</th>
+      </tr>
+      <tr ng-repeat="record in records | orderBy:'name'">
+        <td >{{record.name}}</td>
+        <td >{{record.description}}</td>
+        <td >{{record.money}}</td>
+      </tr>
+
+    </table>
+        <table class="rwd-table" width="700">
+      <tr>
+        <th>Total Cost</th>
+        <th>Number of people</th>
+        <th>Average</th>
+      </tr>
+      <tr >
+        <td >{{total}}</td>
+        <td >{{population}}</td>
+        <td >{{average}}</td>
+      </tr>
+
+    </table>
+    <table class="rwd-table sumTable" width="700">
+      <tr>
+        <th>Name</th>
+        <th>Money Spent</th>
+        <th>Average</th>
+        <th>Need to pay</th>
+      </tr>
+      <tr ng-repeat="(name, money) in individualCosts | orderBy:'name'">
+        <td >{{name}}</td>
+        <td >{{money}}</td>
+        <td >{{average}}</td>
+        <td >{{average-money}}</td>
+      </tr>
+
+    </table>
+</div>
+
+<section id="pricing-table">
+
+        <div class="pricing">
+            <div class="panel">
+                <div class="pricing-table">
+                    <div class="pricing-header">
+                        <p class="pricing-title">Add your cost to the system</p>
+                    </div>
+
+                    <div class="pricing-list">
+                    <ul>
+                        <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Name</li>
+                        <input type="text" placeholder="E.g Fenny " required="" ng-model="name"  />
+                        <li><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span>Description</li>
+                        <input type="text" placeholder="E.g Hotel charge at Langham" required="" ng-model="description"  />
+                        <li><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>Money Spent</li>
+                        <input type="text" placeholder="E.g 850" required="" ng-model="money"  />
+                        
+                    </ul>
+                    <br>
+                    <div id="addButton">
+                        <button ng-click="addToSystem()">Add to System</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>   
+
+</section>
