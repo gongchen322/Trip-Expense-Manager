@@ -17,13 +17,15 @@ var db = {
 
 };
 
-db.record = sequelize.import(__dirname + '/models/record.js');
-//db.user = sequelize.import(__dirname + '/models/user.js');
+db.tripInfo = sequelize.import(__dirname + '/models/tripInfo.js');
+db.user = sequelize.import(__dirname + '/models/user.js');
+
+db.token = sequelize.import(__dirname + '/models/token.js');
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-//db.order.belongsTo(db.user);
-//db.user.hasMany(db.order);
+db.tripInfo.belongsTo(db.user);
+db.user.hasMany(db.tripInfo);
 
 module.exports = db;
